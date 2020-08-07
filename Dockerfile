@@ -1,7 +1,5 @@
 FROM debian:buster-slim
 
-MAINTAINER gkhodizo@student.42.us.org
-
 RUN apt-get update && apt-get install -y \
 	mariadb-server \
 	php \

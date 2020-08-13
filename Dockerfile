@@ -1,15 +1,15 @@
-FROM debian:buster-slim
+FROM debian:buster
 
-RUN apt-get update && apt-get install -y \
-	mariadb-server \
-	php \
-	php-json \
-	php-mbstring \
-	php-zip \
-	php-gd \
-	php-xml \
-	php-curl \
-	php-mysql \
+LABEL maintainer="gkhodizo@student.42.us.org"
+
+RUN apt-get update && apt-get upgrade && apt-get install -y \
 	nginx
 
-CMD ["echo", "Hello World"]
+COPY srcs ./root/
+
+WORKDIR /root/
+
+#ENTRYPOINT ["bash", "run_container.sh"]
+
+#CMD /bin/bash
+

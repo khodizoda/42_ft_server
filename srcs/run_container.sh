@@ -1,0 +1,1 @@
+bash ./nginx/nginx.config

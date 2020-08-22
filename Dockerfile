@@ -3,17 +3,19 @@ FROM debian:buster
 LABEL maintainer="gkhodizo@student.42.us.org"
 
 RUN apt-get update && apt-get install -y \
-	mariadb-server \
 	mariadb-client \
+	mariadb-server \
 	nginx \
+	openssl \
 	php \
+	php-curl \
+	php-fpm \
+	php-gd \
 	php-json \
 	php-mbstring \
-	php-zip \
- 	php-gd \
-	php-xml \
-	php-curl \
 	php-mysql \
+	php-xml \
+	php-zip \
  && rm -rf /var/lib/apt/lists/*
 
 

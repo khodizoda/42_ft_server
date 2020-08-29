@@ -1,26 +1,23 @@
 FROM debian:buster
 
-LABEL maintainer="gkhodizo@student.42.us.org"
+LABEL maintainer="Gulnoza Khodizoda <gkhodizo@student.42.us.org>"
 
 RUN apt-get update && apt-get install -y \
-	mariadb-client \
 	mariadb-server \
 	nginx \
 	openssl \
-	php \
-	php-curl \
+	php-cli \
 	php-fpm \
-	php-gd \
-	php-json \
 	php-mbstring \
 	php-mysql \
-	php-xml \
-	php-zip \
+	wget \
  && rm -rf /var/lib/apt/lists/*
-
 
 COPY srcs /root/
 
 WORKDIR /root/
 
-#ENTRYPOINT ["bash", "run_container.sh"]
+RUN ["bash", "ft_setup.sh"]
+
+ENTRYPOINT ["bash", "ft_services.sh"]
+

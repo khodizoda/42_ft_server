@@ -1,5 +1,5 @@
 # [42_ft_server](https://cdn.intra.42.fr/pdf/pdf/10332/en.subject.pdf)
-42_Project: ft_server (new curriculum). The aim of the project is to learn automation, the "docker" technology and use it to install a complete web server. This server will run multiples services: Wordpress, phpMyAdmin, and a SQL database. Status: work_in_progress
+42_Project: ft_server (new curriculum). The aim of the project is to learn automation, the "docker" technology and use it to install a complete web server. This server will run multiples services: Wordpress, phpMyAdmin, and a SQL database.
 
 ## Usage
 

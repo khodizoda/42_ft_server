@@ -2,17 +2,10 @@
 
 # SETUP NGINX
 
-# rename default nginx config file
-# mv new nginx.config file and rm default config file
-
 service nginx start
 mv nginx.conf /etc/nginx/sites-available/localhost
 rm  /etc/nginx/sites-enabled/default
-ln -s /etc/nginx/sites-available/localhost /etc/nginx/sites-enabled/localhost
-
-#mv  /etc/nginx/nginx.conf /etc/nginx/nginx.conf.ORIG
-#mv nginx.conf /etc/nginx/.
-#rm  /etc/nginx/nginx.conf.ORIG
+ln -s /etc/nginx/sites-available/localhost /etc/nginx/sites-enabled/localhost 
 
 # create a cache directory
 mkdir -p /usr/share/nginx/cache/fcgi

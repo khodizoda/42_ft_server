@@ -17,7 +17,7 @@ COPY srcs /root/
 
 WORKDIR /root/
 
-RUN ["bash", "ft_setup.sh"]
+RUN ["bash", "setup.sh"]
 
-ENTRYPOINT ["bash", "ft_services.sh"]
+ENTRYPOINT ["bash", "services.sh"]
 

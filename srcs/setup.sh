@@ -9,7 +9,7 @@ rm  /var/www/html/index.nginx-debian.html
 
 # SETUP DATABASE
 # run mysql_secure_installation script
-
+service mysql start
 mysql --user=root <<_EOF_
   UPDATE mysql.user SET Password=PASSWORD('${Q4mBCji4czHf96g}') WHERE User='root';
   DELETE FROM mysql.user WHERE User='';
@@ -48,7 +48,7 @@ chown -R www-data:www-data /var/www/html
 find . -type d -exec chmod 755 {} \;
 find . -type f -exec chmod 644 {} \;
 
-# General SSL
+# GENERATE SSL
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/nginx-selfsigned.key \
 -out /etc/ssl/certs/nginx-selfsigned.crt -subj "/C=US/ST=FL/L=BOCARATON/O=42/OU=42SV/CN=localhost"
 

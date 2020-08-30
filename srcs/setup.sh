@@ -1,14 +1,27 @@
 #!bin/bash
 
 # SETUP NGINX
-
 service nginx start
 mv nginx.conf /etc/nginx/sites-available/localhost
 rm  /etc/nginx/sites-enabled/default
 ln -s /etc/nginx/sites-available/localhost /etc/nginx/sites-enabled/localhost 
+rm  /var/www/html/index.nginx-debian.html
 
-# create a cache directory
-mkdir -p /usr/share/nginx/cache/fcgi
+# SETUP DATABASE
+# run mysql_secure_installation script
+
+mysql --user=root <<_EOF_
+  UPDATE mysql.user SET Password=PASSWORD('${Q4mBCji4czHf96g}') WHERE User='root';
+  DELETE FROM mysql.user WHERE User='';
+  DELETE FROM mysql.user WHERE User='root' AND Host NOT IN ('localhost', '127.0.0.1', '::1');
+  DROP DATABASE IF EXISTS test;
+  DELETE FROM mysql.db WHERE Db='test' OR Db='test\\_%';
+  FLUSH PRIVILEGES;
+_EOF_
+
+# create database for wordpress
+sh init_mariadb.sh
+rm init_mariadb.sh
 
 # SETUP PHPMYADMIN
 
@@ -32,12 +45,9 @@ mv wp-config.php /var/www/html/wordpress
 
 # Set proper file permissions
 chown -R www-data:www-data /var/www/html
-chmod -R 755 /var/www/html/wordpress/
+find . -type d -exec chmod 755 {} \;
+find . -type f -exec chmod 644 {} \;
 
-# SETUP MARIADB
-
-sh init_mariadb.sh
-
-# Generate SSL key
+# General SSL
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/nginx-selfsigned.key -out /etc/ssl/certs/nginx-selfsigned.crt -subj "/C=US/ST=CA/L=FREMONT/O=42/OU=42SV/CN=localhost"
 

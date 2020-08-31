@@ -41,7 +41,7 @@ docker rmi <image_name>
 ## RESOURCES
 
 ### [DOCKER](https://www.docker.com/)
-- [Docker commands](https://docs.docker.com/engine/reference/builder/)
+- [Dockerfile reference](https://docs.docker.com/engine/reference/builder/)
 - [Best practices on writing dockerfile](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
 
 ### [NGINX](https://nginx.org/en/docs/)

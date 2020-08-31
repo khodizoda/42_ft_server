@@ -19,5 +19,7 @@ WORKDIR /root/
 
 RUN ["bash", "setup.sh"]
 
+EXPOSE 80 443
+
 ENTRYPOINT ["bash", "services.sh"]
 

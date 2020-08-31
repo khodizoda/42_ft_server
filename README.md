@@ -20,12 +20,12 @@ docker exec -it <container_name> /bin/bash
 
 enable autoindex
 ```terminal
-docker exec -t <cotainer_name> /bin/bash enable_autoindex.sh
+docker exec -t <container_name> /bin/bash enable_autoindex.sh
 ```
 
 disable autoindex
 ```terminal
-docker exec -t <cotainer_name> /bin/bash disable_autoindex.sh
+docker exec -t <container_name> /bin/bash disable_autoindex.sh
 ```
 
 stop and remove container

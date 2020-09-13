@@ -3,38 +3,27 @@
 
 ## Usage
 
-build image from the Dockerfile
 ```terminal
+
+# build image from the Dockerfile
 docker build . -t <img_name>
-```
 
-run container using built image
-```terminal
+# run container using built image
 docker run --name <container_name> -p 80:80 -p 443:443 -d <img_name>
-```
 
-enter container's interactive mode
-```terminal
+# enter container's interactive mode
 docker exec -it <container_name> /bin/bash
-```
 
-enable autoindex
-```terminal
+# enable autoindex
 docker exec -t <container_name> /bin/bash enable_autoindex.sh
-```
 
-disable autoindex
-```terminal
+# disable autoindex
 docker exec -t <container_name> /bin/bash disable_autoindex.sh
-```
 
-stop and remove container
-```terminal
+# stop and remove container
 docker stop <container_name> && docker rm <container_name>
-```
 
-remove image
-```terminal
+# remove image
 docker rmi <image_name>
 ```
 
